@@ -1,0 +1,22 @@
+<EditForm Model="registrationModel" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <InputText id="name" @bind-Value="registrationModel.Name" />
+    <InputText id="email" @bind-Value="registrationModel.Email" />
+    <button type="submit">Register</button>
+</EditForm>
+
+@code {
+    private RegistrationModel registrationModel = new();
+
+    private void HandleValidSubmit()
+    {
+        Console.WriteLine("User Registered: " + registrationModel.Name);
+    }
+
+    public class RegistrationModel
+    {
+        [Required] public string Name { get; set; }
+        [Required, EmailAddress] public string Email { get; set; }
+    }
+}

@@ -1,0 +1,18 @@
+<h3>Attendance Tracker</h3>
+<ul>
+    @foreach (var user in attendees)
+    {
+        <li>@user</li>
+    }
+</ul>
+
+@code {
+    private List<string> attendees = new() { "Alice", "Bob", "Charlie" };
+}
+
+// NavMenu.razor
+<nav>
+    <a href="/">Home</a>
+    <a href="/register">Register</a>
+    <a href="/attendance">Attendance Tracker</a>
+</nav>
